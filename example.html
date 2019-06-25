@@ -14,13 +14,29 @@
 			
 			Ads.add("350x350", function(banner){
 				var e = document.getElementById("banner1");
-				e.innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+				var img = '<img src="' + banner.image + '" alt="advertising"/>';
+				var html = '';
+				if (banner.url) {
+					html = '<a href="' + banner.url + '" target="_blank"/>' + img + '</a>';
+				} else {
+					html = img;
+				}
+
+				e.innerHTML = html;
 				e.onclick = function(){ Ads.click(banner.id); };
 			});
 
 			Ads.add("350x350", function(banner){
 				var e = document.getElementById("banner2");
-				e.innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+				var img = '<a href="' + banner.url + '" target="_blank"/><img src="' + banner.image + '" alt="advertising"/></a>';
+				var html = '';
+				if (banner.url) {
+					html = '<a href="' + banner.url + '" target="_blank"/>' + img + '</a>';
+				} else {
+					html = img;
+				}
+
+				e.innerHTML = html;
 				e.onclick = function(){ Ads.click(banner.id); };
 			});
 
