@@ -8,9 +8,16 @@
 	<body>
 		<h1>Channeldir Ads</h1>
 		<div id="banner1"></div>
+		<div id="banner2"></div>
 		<script>
 			var Ads = new ChanneldirAds("channeldir");
-			Ads.add("banner1", "350x350");
+
+			Ads.add("350x350", function(banner){
+				document.getElementById("banner1").innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+			});
+
+			
+
 		</script>
 	</body>
 </html>

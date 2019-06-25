@@ -1,6 +1,6 @@
 var Ads = require("./ads");
 
-module.exports = function(app, format) {
+module.exports = function(app, format, renderFunction) {
 	
 	var banner = {
 		id: null,
@@ -17,20 +17,25 @@ module.exports = function(app, format) {
 				banner.id = resBanner.id;
 				banner.image = resBanner.image;
 				banner.url = resBanner.url || null;
-				banner.displayTime = resBanner.display_time || null;
-				console.log(banner);
-				checkRefresh(banner.displayTime);
+				banner.displayTime = parseInt(resBanner.display_time) || null;
+				render();
+				refresh();
 			})
 			.catch(function(error){
 				console.error(error);
 			});
 	}
 
-	function checkRefresh(displayTime) {
-		var seconds = parseInt(displayTime);
-		if (Number.isInteger(seconds)) {
-			console.log("refresh banner in", displayTime, "seconds");
-			setTimeout(fetch, displayTime * 1000);
+	function refresh() {
+		if (Number.isInteger(banner.displayTime)) {
+			console.log("refresh banner in", banner.displayTime, "seconds");
+			setTimeout(fetch, banner.displayTime * 1000);
+		}
+	}
+
+	function render() {
+		if (typeof renderFunction == "function") {
+			renderFunction(banner);
 		}
 	}
 

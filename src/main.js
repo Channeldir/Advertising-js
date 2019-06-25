@@ -1,8 +1,8 @@
 Banner = require("./banner");
 
 window.ChanneldirAds = function(app) {
-	function add(element, format) {
-		var banner = new Banner(app, format);
+	function add(format, renderFunction) {
+		return new Banner(app, format, renderFunction);
 	}
 
 	return {
