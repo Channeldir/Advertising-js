@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Channeldir/Advertising-js/issues"
   },
-  "homepage": "https://github.com/Channeldir/Advertising-js#readme"
+  "homepage": "https://github.com/Channeldir/Advertising-js#readme",
+  "dependencies": {
+    "grunt": "^1.0.4",
+    "grunt-browserify": "^5.3.0"
+  }
 }
