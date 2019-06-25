@@ -1,29 +1,20 @@
 Banner = require("./banner");
+Ads = require("./ads");
 
 window.ChanneldirAds = function(app) {
+
+	var ads = new Ads(app);
+
 	function add(format, renderFunction) {
 		return new Banner(app, format, renderFunction);
 	}
 
+	function click(id) {
+		ads.incClicks(id);
+	}
+
 	return {
-		add: add
+		add: add,
+		click: click
 	}
 };
-
-// ads = new Ads("channeldir");
-
-// ads.get("350x350")
-// .then(function(banner){
-// 	console.log(banner);
-// })
-// .catch(function(error){
-// 	console.error(error);
-// });
-
-// ads.incClicks(2)
-// .then(function(res){
-// 	console.log(res);
-// })
-// .catch(function(error){
-// 	console.error(error);
-// });

@@ -22,13 +22,12 @@ module.exports = function(app, format, renderFunction) {
 				refresh();
 			})
 			.catch(function(error){
-				console.error(error);
+				console.error("There was an error getting the advertisement");
 			});
 	}
 
 	function refresh() {
 		if (Number.isInteger(banner.displayTime)) {
-			console.log("refresh banner in", banner.displayTime, "seconds");
 			setTimeout(fetch, banner.displayTime * 1000);
 		}
 	}

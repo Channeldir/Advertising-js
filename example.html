@@ -7,16 +7,22 @@
 	</head>
 	<body>
 		<h1>Channeldir Ads</h1>
-		<div id="banner1"></div>
-		<div id="banner2"></div>
+		<div id="banner1" class="channeldir-ad"></div>
+		<div id="banner2" class="channeldir-ad"></div>
 		<script>
 			var Ads = new ChanneldirAds("channeldir");
-
+			
 			Ads.add("350x350", function(banner){
-				document.getElementById("banner1").innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+				var e = document.getElementById("banner1");
+				e.innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+				e.onclick = function(){ Ads.click(banner.id); };
 			});
 
-			
+			Ads.add("350x350", function(banner){
+				var e = document.getElementById("banner2");
+				e.innerHTML = '<img src="' + banner.image + '" alt="advertising"/>';
+				e.onclick = function(){ Ads.click(banner.id); };
+			});
 
 		</script>
 	</body>
