@@ -2,7 +2,7 @@ var axios = require('axios');
 
 module.exports = function(app){
 
-	var apiEndpoint = "https://127.0.0.1:8000/ads";
+	var apiEndpoint = "http://127.0.0.1:8000/ads";
 
 	function get(format) {
 		return new Promise(function(resolve, reject){
